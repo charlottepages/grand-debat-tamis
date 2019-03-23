@@ -1,6 +1,5 @@
 class DemoController < ApplicationController
   def search
-    Answer.reindex
   end
 
   def show
@@ -10,5 +9,9 @@ class DemoController < ApplicationController
   end
 
   def engage
+  end
+
+  def reindex
+    Answer.reindex
   end
 end
