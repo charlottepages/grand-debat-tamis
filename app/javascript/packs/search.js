@@ -19,15 +19,24 @@ search.addWidget(
   instantsearch.widgets.searchBox({
     container: '#search-box',
     placeholder: 'Chercher parmi les réponses',
+    autofocus: true
   })
 );
+
+// search.addWidget(
+//   instantsearch.widgets.refinementList({
+//     container: '#search-box',
+//     placeholder: 'Chercher parmi les réponses',
+//     autofocus: true
+//   })
+// );
 
 search.addWidget(
   instantsearch.widgets.hits({
     container: '#hits',
     templates: {
       item: document.getElementById('hit-template').innerHTML,
-      empty: 'Aucun résultat...',
+      empty: `<div class="empty">Aucun résultat...</div>`,
     },
   })
 );

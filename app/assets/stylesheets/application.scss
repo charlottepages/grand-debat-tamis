@@ -14,5 +14,28 @@
  *= require_self
  */
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
+// @import "bootstrap-sprockets";
+// @import "bootstrap";
+
+body {
+  padding: 20px;
+}
+
+#search-box {
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.empty {
+  text-align: center;
+}
+
+.result {
+  font-size: 14px;
+  line-height: 20px;
+  .question {
+    border-bottom: 1px solid silver;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+}
