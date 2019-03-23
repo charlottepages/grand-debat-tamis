@@ -5,51 +5,55 @@ namespace :import do
     puts '---------- DESTROYING QUESTIONS'
     Question.destroy_all
 
-    puts '---------- PARSING CSV'
-    demo = "#{Dir.pwd}/db/data/questions_demo.csv"
-    fisca = "#{Dir.pwd}/db/data/questions_fisca.csv"
-    orga = "#{Dir.pwd}/db/data/questions_orga.csv"
-    transition = "#{Dir.pwd}/db/data/questions_transition.csv"
+    # puts '---------- PARSING CSV'
+    # demo = "#{Dir.pwd}/db/data/questions_demo.csv"
+    # fisca = "#{Dir.pwd}/db/data/questions_fisca.csv"
+    # orga = "#{Dir.pwd}/db/data/questions_orga.csv"
+    # transition = "#{Dir.pwd}/db/data/questions_transition.csv"
+
+    # puts '---------- CREATING QUESTIONS'
+    # puts '-------------- Démocratie et citoyenneté'
+    # CSV.foreach(demo) do |row|
+    #   question = Question.find_or_create_by!(grand_debat_id: row[0])
+    #   question.title = row[1]
+    #   question.theme = 'Démocratie et citoyenneté'
+    #   question.save!
+    # end
+
+    # puts '-------------- Fiscalité et dépenses publiques'
+    # CSV.foreach(fisca) do |row|
+    #   question = Question.find_or_create_by!(grand_debat_id: row[0])
+    #   question.title = row[1]
+    #   question.theme = 'Fiscalité et dépenses publiques'
+    #   question.save!
+    # end
+
+    # puts "-------------- Organisation de l'État et des services publics"
+    # CSV.foreach(orga) do |row|
+    #   question = Question.find_or_create_by!(grand_debat_id: row[0])
+    #   question.title = row[1]
+    #   question.theme = "Organisation de l'État et des services publics"
+    #   question.save!
+    # end
+
+    # puts '-------------- Transition écologique'
+    # CSV.foreach(transition) do |row|
+    #   question = Question.find_or_create_by!(grand_debat_id: row[0])
+    #   question.title = row[1]
+    #   question.theme = 'Transition écologique'
+    #   question.save!
+    # end
 
     puts '---------- CREATING QUESTIONS'
-    puts '-------------- Démocratie et citoyenneté'
-    CSV.foreach(demo) do |row|
-      question = Question.find_or_create_by!(grand_debat_id: row[0])
-      question.title = row[1]
-      question.theme = 'Démocratie et citoyenneté'
-      question.save!
-    end
 
-    puts '-------------- Fiscalité et dépenses publiques'
-    CSV.foreach(fisca) do |row|
-      question = Question.find_or_create_by!(grand_debat_id: row[0])
-      question.title = row[1]
-      question.theme = 'Fiscalité et dépenses publiques'
-      question.save!
-    end
+    themes = [nil, 'Démocratie et citoyenneté', 'Fiscalité et dépenses publiques', 'Transition écologique', "Organisation de l'État et des services publics"]
 
-    puts "-------------- Organisation de l'État et des services publics"
-    CSV.foreach(orga) do |row|
-      question = Question.find_or_create_by!(grand_debat_id: row[0])
-      question.title = row[1]
-      question.theme = "Organisation de l'État et des services publics"
-      question.save!
+    filepath = "#{Dir.pwd}/db/data/question_index_to_label.json"
+    serialized_questions = File.read(filepath)
+    questions = JSON.parse(serialized_questions)
+    questions.each do |key, value|
+      qu = Question.create(grand_debat_id: key, title: value[0], theme: themes[value[1]])
     end
-
-    puts '-------------- Transition écologique'
-    CSV.foreach(transition) do |row|
-      question = Question.find_or_create_by!(grand_debat_id: row[0])
-      question.title = row[1]
-      question.theme = 'Transition écologique'
-      question.save!
-    end
-
-    # filepath = "#{Dir.pwd}/db/data/question_index_to_label.json"
-    # serialized_questions = File.read(filepath)
-    # questions = JSON.parse(serialized_questions)
-    # questions.each do |key, value|
-    #   Question.create(grand_debat_id: key, title: value)
-    # end
 
     puts '---------- DESTROYING ANSWERS'
     Answer.destroy_all

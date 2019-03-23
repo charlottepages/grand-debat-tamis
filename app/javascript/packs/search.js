@@ -33,6 +33,14 @@ search.addWidget(
 
 search.addWidget(
   instantsearch.widgets.refinementList({
+    container: '#contributors',
+    attribute: 'contributor_type',
+    operator: 'and',
+  })
+);
+
+search.addWidget(
+  instantsearch.widgets.refinementList({
     container: '#zipcodes',
     attribute: 'zipcode',
     showMore: true,
