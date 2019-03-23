@@ -1,0 +1,2 @@
+class AnswerTag < ApplicationRecord
+end
