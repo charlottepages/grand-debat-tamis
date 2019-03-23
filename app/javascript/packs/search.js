@@ -18,7 +18,7 @@ search.addWidget(
 search.addWidget(
   instantsearch.widgets.searchBox({
     container: "#search-box",
-    placeholder: "Chercher parmi les réponses",
+    placeholder: "Chercher parmi les réponses au Grand Débat",
     autofocus: true
   })
 );
