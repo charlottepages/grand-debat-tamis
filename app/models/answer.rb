@@ -7,7 +7,7 @@ class Answer < ApplicationRecord
 
   algoliasearch do
     add_attribute :question_text
-    searchableAttributes ['content', 'question_text']
+    searchableAttributes ['content', 'question_text', 'zipcode']
     customRanking ['desc(flag_count)']
   end
 
