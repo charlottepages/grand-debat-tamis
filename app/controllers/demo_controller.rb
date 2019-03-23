@@ -12,6 +12,6 @@ class DemoController < ApplicationController
   end
 
   def reindex
-    Answer.reindex
+    Answer.where("question_id IS NOT NULL").reindex
   end
 end
