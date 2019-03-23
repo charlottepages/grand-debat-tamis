@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 2019_03_23_124147) do
   create_table "answer_tags", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "answers_id"
-    t.bigint "tags_id"
-    t.index ["answers_id"], name: "index_answer_tags_on_answers_id"
-    t.index ["tags_id"], name: "index_answer_tags_on_tags_id"
+    t.bigint "answer_id"
+    t.bigint "tag_id"
+    t.index ["answer_id"], name: "index_answer_tags_on_answer_id"
+    t.index ["tag_id"], name: "index_answer_tags_on_tag_id"
   end
 
   create_table "answers", force: :cascade do |t|
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2019_03_23_124147) do
     t.integer "flag_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "questions_id"
-    t.index ["questions_id"], name: "index_answers_on_questions_id"
+    t.bigint "question_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -50,10 +50,10 @@ ActiveRecord::Schema.define(version: 2019_03_23_124147) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "users_id"
-    t.bigint "answers_id"
-    t.index ["answers_id"], name: "index_saves_on_answers_id"
-    t.index ["users_id"], name: "index_saves_on_users_id"
+    t.bigint "user_id"
+    t.bigint "answer_id"
+    t.index ["answer_id"], name: "index_saves_on_answer_id"
+    t.index ["user_id"], name: "index_saves_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
