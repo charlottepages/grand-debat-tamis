@@ -18,12 +18,15 @@
 // @import "bootstrap";
 
 body {
+}
+
+.container-fluid {
   padding: 20px;
 }
 
 #search-box {
   max-width: 600px;
-  margin: 40px auto 40px;
+  margin: 70px auto 40px;
 }
 
 #pagination {
