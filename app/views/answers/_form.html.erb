@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+  Content
+  <%= form.text_field :content %>
+  <br>
+  Question
+  <%= form.collection_select :question_id, Question.all, :id, :title %>
+
   <div class="actions">
     <%= form.submit %>
   </div>
