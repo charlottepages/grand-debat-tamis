@@ -55,7 +55,7 @@ namespace :import do
     puts '---------- CREATING ANSWERS'
     ideas.each do |idea|
       answer = Answer.new(
-        content: idea.fetch(:reponse),
+        content: idea.fetch(:reponse)[0, 2000],
         zipcode: idea.fetch(:authorZipCode),
         source: idea.fetch(:source),
         contributor_type: idea.fetch(:authorType),
