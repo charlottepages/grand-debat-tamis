@@ -18,7 +18,7 @@
 // @import "bootstrap";
 
 body {
-  background-color: #fafafa;
+  background-color: #F4F5F5;
 
 }
 
@@ -50,6 +50,25 @@ body {
 
 .refinement-list {
   margin-bottom: 20px;
+  .ais-RefinementList-count {
+    padding: 1px 8px 2px;
+  }
+  .ais-RefinementList-checkbox[value="Fiscalité et dépenses publiques"] ~ .ais-RefinementList-count {
+    color: black;
+    background-color: #F4BB1D;
+  }
+  .ais-RefinementList-checkbox[value="Transition écologique"] ~ .ais-RefinementList-count {
+    color: black;
+    background-color: #0CCE6B;
+  }
+  .ais-RefinementList-checkbox[value="Démocratie et citoyenneté"] ~ .ais-RefinementList-count {
+    background-color: #0A2C9B;
+    color: white;
+  }
+  .ais-RefinementList-checkbox[value="Organisation de l'État et des services publics"] ~ .ais-RefinementList-count {
+    color: white;
+    background-color: #F85A3E;
+  }
 }
 
 .empty {
