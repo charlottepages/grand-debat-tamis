@@ -6,12 +6,16 @@ class Answer < ApplicationRecord
   belongs_to :question
 
   algoliasearch do
-    add_attribute :question_text
+    add_attribute :question_text, :question_theme
     searchableAttributes ['content', 'question_text', 'zipcode']
     customRanking ['desc(flag_count)']
   end
 
   def question_text
     self.question.title
+  end
+
+  def question_theme
+    self.question.theme
   end
 end
