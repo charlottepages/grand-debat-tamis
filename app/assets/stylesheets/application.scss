@@ -62,11 +62,11 @@ body {
     &.Dé {
       background-color: #0A2C9B;
     }
-    &.Tr {
-      background-color: #0CCE6B;
+    &.Fi {
+      background-color: #F4BB1D;
     }
-    &.Tr {
-      background-color: #0CCE6B;
+    &.Or {
+      background-color: #F85A3E;
     }
   }
   .question {
@@ -85,5 +85,10 @@ body {
     margin-top: 10px;
     padding: 10px;
     border-top: 1px solid silver;
+  }
+  .button {
+    display: inline-block;
+    width: 48%;
+    border: none;
   }
 }

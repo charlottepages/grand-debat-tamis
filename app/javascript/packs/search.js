@@ -11,7 +11,7 @@ var search = instantsearch({
 
 search.addWidget(
   instantsearch.widgets.configure({
-    hitsPerPage: 10
+    hitsPerPage: 30
   })
 );
 
@@ -37,6 +37,7 @@ search.addWidget(
     attribute: 'zipcode',
     showMore: true,
     searchable: true,
+    searchablePlaceholder: 'Chercher un code postal...',
   })
 );
 

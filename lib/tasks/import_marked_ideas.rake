@@ -44,6 +44,13 @@ namespace :import do
       question.save!
     end
 
+    # filepath = "#{Dir.pwd}/db/data/question_index_to_label.json"
+    # serialized_questions = File.read(filepath)
+    # questions = JSON.parse(serialized_questions)
+    # questions.each do |key, value|
+    #   Question.create(grand_debat_id: key, title: value)
+    # end
+
     puts '---------- DESTROYING ANSWERS'
     Answer.destroy_all
 
