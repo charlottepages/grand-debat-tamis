@@ -3,7 +3,6 @@ class CreateAnswers < ActiveRecord::Migration[5.2]
     create_table :answers do |t|
       t.text      :content
       t.integer   :zipcode
-      t.string    :theme
       t.string    :source
       t.string    :contributor_type
       t.datetime  :published_at
